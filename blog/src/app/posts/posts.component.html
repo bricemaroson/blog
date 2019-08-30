@@ -1,0 +1,23 @@
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-danger': (postLoveIts-postDontLoveIts) < 0,
+                'list-group-item-success': (postLoveIts-postDontLoveIts) > 0}">
+    <p style="text-align: right">  {{getCreatedAt() | date:'short'}}  </p>
+    <h3 [ngStyle]="{color: getColorText()}" >  {{ postTitle }}</h3>
+    <h5 [ngStyle]="{color: getColorText()}" >  <br> {{getContent()}} </h5>
+  
+    <button type="button" class="btn btn-success btn-sm" 
+        style="margin-right: 10px"
+        (click)="compteurPlus()" style="margin-right: 5px" >
+        <span class="glyphicon glyphicon-thumbs-up"></span> Love it!
+    </button>
+    <label [ngStyle]="{color: getColorText()}" style="margin-right: 10px; font-family: 'Times New Roman'" >   {{   postLoveIts}}  </label>
+   
+    <button type="button" class="btn btn-danger btn-sm" 
+        style="margin-right: 5px" 
+        (click)="compteurMoins()">
+        <span class="glyphicon glyphicon-thumbs-down"></span> Don't love it!  
+    </button>
+    
+    <label [ngStyle]="{color: getColorText()}" style="font-family: 'Times New Roman'" >   {{   postDontLoveIts}}  </label>
+
+</li>
